@@ -1,0 +1,67 @@
+[
+	          {
+                "name": "WBGO Radio FM 88.3",
+                "id":"DgwKDAkGFFA",
+                "type": "MUSIC",
+                "des": "Jazz Public Radio from the Jazz Capitol of the World",
+                "media": "http://wbgo.streamguys.net/",
+                "icon": "https://images-na.ssl-images-amazon.com/images/I/719eDnBIKeL._SL500_AA300_.png"
+              },
+              {
+                "name": "Greatest Hits Radio",
+                "id":"CgIBCQoACwA",
+                "type": "MUSIC",
+                "des": "Enjoy listening to the Greatest Hits of All Time",
+                "media": "http://23.29.71.154:8100/;",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/7/30537.png"
+              },
+              {
+                "name": "Power 105.1 FM",
+                "id":"BQwBAAcBDA8",
+                "type": "MUSIC",
+                "des": "mainstream urban radio station",
+                "media": "http://c11icyelb.prod.playlists.ihrhls.com/1481_icy",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/1/47391.v1.png"
+              },
+              {
+                "name": "106.7 Lite fm",
+                "id":"Dg8PCQAOBQw",
+                "type": "MUSIC",
+                "des": "Radio station with a Mainstream AC format",
+                "media": "http://c11icyelb.prod.playlists.ihrhls.com/1477_icy",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/4/47384.v1.png"
+              },
+              {
+                "name": "WNYC Radio",
+                "id":"BgsKDggJBQo",
+                "type": "MUSIC",
+                "des": "Radio station broadcasting from New York city",
+                "media": "https://am820.wnyc.org/wnycam-web",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/7/6287.v3.png"
+              },
+              {
+                "name": "ESPN New York (WEPN)",
+                "id":"CQgJAg8FDQg",
+                "type": "MUSIC",
+                "des": "All-sports radio station in New York city, USA",
+                "media": "http://edge.espn.cdn.abacast.net/espn-wepnmp3-32?source=tunein",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/8/6258.png"
+              },
+              {
+                "name": "Radio Max Music",
+                "id":"DAYHAgUNCA0",
+                "type": "MUSIC",
+                "des": "Greatest Hits from the 70's, 80's and 90's",
+                "media": "http://142.4.217.133:8035/stream",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/5/25825.v8.png"
+              },
+              {
+                "name": "Midnight Cafe Radio",
+                "id":"Bw8ODAcBBAc",
+                "type": "MUSIC",
+                "des": "Electric mix of American Oldies",
+                "media": "http://vh11367x.out.airtime.pro:8000/vh11367x_a",
+                "icon": "http://cdn.onlineradiobox.com/img/logo/5/32415.png"
+              }
+
+            ]

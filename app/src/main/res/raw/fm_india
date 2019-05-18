@@ -1,0 +1,327 @@
+[
+              
+				{
+					"name":"Radio City 91.1 FM",
+					"id":"Stc0ssuyB27",
+					"type":"MUSIC",
+					"des":"Radio City 91.1 FM",
+					"media":"http://prclive1.listenon.in:9960/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-city-91-1-fm.png"
+				}
+				,
+				{
+					"name":"Radio Mirchi",
+					"id":"Ll1D7MKN6SV",
+					"type":"MUSIC",
+					"des":"Radio Mirchi",
+					"media":"http://peridot.streamguys.com:7150/Mirchi",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-mirchi-98-3-fm.png"
+				}
+				,
+				{
+					"name":"Radio Afsana",
+					"id":"ZJkGGQNTrxf",
+					"type":"MUSIC",
+					"des":"Radio Afsana",
+					"media":"http://174.36.206.197:7019/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-afsana-india.png"
+				}
+				,
+				{
+					"name":"The Classic Punjabi",
+					"id":"YmfO9YvSJUX",
+					"type":"MUSIC",
+					"des":"The Classic Punjabi",
+					"media":"http://192.69.212.61:8501/stream",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/the-classics-punjabi.png"
+				}
+				,
+				{
+					"name":"Bollywood Radio And Beyond",
+					"id":"WvlhmG1Id3I",
+					"type":"MUSIC",
+					"des":"Bollywood Radio And Beyond",
+					"media":"http://96.31.83.86:8084/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/bollywood-radio-and-beyond.png"
+				}
+				,
+				{
+					"name":"Radio Maria",
+					"id":"Kzk1AnD9ujS",
+					"type":"MUSIC",
+					"des":"Radio Maria",
+					"media":"http://dreamsiteradiocp.com:8002/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-maria-india.png"
+				}
+				,
+				{
+					"name":"Bombay Beats India",
+					"id":"BFZQ3LgT5qd",
+					"type":"MUSIC",
+					"des":"Bombay Beats India",
+					"media":"http://sc-bb.1.fm:8017/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/bombay-beats-india.png"
+				}
+				,
+				{
+					"name":"Indian indi desi bollywood evergreen hits",
+					"id":"VgHGb75f2qN",
+					"type":"MUSIC",
+					"des":"Indian indi desi bollywood evergreen hits",
+					"media":"http://50.7.77.114:8296/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/indian-hindi-desi-bollywood-evergreen-hits.png"
+				}
+				,
+				{
+					"name":"City 1016",
+					"id":"LbZAVSDWBnC",
+					"type":"MUSIC",
+					"des":"City 1016",
+					"media":"http://19013.live.streamtheworld.com/ARNCITY_SC",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/city-101-6-fm.png"
+				}
+				,
+				{
+					"name":"Radio Madhuban FM 90.4",
+					"id":"OGpKd2HaMsY",
+					"type":"MUSIC",
+					"des":"Radio Madhuban FM 90.4",
+					"media":"http://icecast.bkwsu.eu/radiomadhuban.ogg",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-madhuban-fm-90-4-fm.png"
+				}
+				,
+				{
+					"name":"Sada bahar music radio",
+					"id":"EyvTDW5DJbi",
+					"type":"MUSIC",
+					"des":"Sada bahar music radio",
+					"media":"http://sadabaharmusicradio.serverhostingcenter.com:8512/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/sada-bahar-music-radio.png"
+				}
+				,
+				{
+					"name":"Easy 96 India",
+					"id":"XyhoTAImBwz",
+					"type":"MUSIC",
+					"des":"Easy 96 India",
+					"media":"http://ice8.securenetsystems.net/EASY96",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/easy-96-india.png"
+				}
+				,
+				{
+					"name":"Jesus FM Tamil",
+					"id":"ZTsMnWq99WT",
+					"type":"MUSIC",
+					"des":"Jesus fm tamil",
+					"media":"http://50.7.70.66:8575/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/jesus-fm-tamil.png"
+				}
+				,
+				{
+					"name":"Desi music mix india",
+					"id":"D1YbUA85Es8",
+					"type":"MUSIC",
+					"des":"Desi music mix india",
+					"media":"http://66.23.234.242:8012/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/desi-music-mix-india.png"
+				}
+				,
+				{
+					"name":"Shakti FM",
+					"id":"QQSAqkOmWCZ",
+					"type":"MUSIC",
+					"des":"Shakti FM",
+					"media":"http://76.164.217.100:7012/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/shakti-fm.png"
+				}
+				,
+				{
+					"name":"Planet radio city hindi",
+					"id":"CEx6KZSAxGT",
+					"type":"MUSIC",
+					"des":"Planet radio city hindi",
+					"media":"http://prclive1.listenon.in:9960/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/planet-radio-city-hindi.png"
+				}
+				,
+				{
+					"name":"Puradsi fm via isaiyaruvi fm",
+					"id":"L2cm5Da0HTT",
+					"type":"MUSIC",
+					"des":"Puradsi fm via isaiyaruvi fm",
+					"media":"http://puradsifm.net:9994/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/puradsi-fm-via-isaiyaruvi-fm.png"
+				}
+				,
+				{
+					"name":"BBC Tamil Radio",
+					"id":"JWwfp3XIpix",
+					"type":"MUSIC",
+					"des":"BBC Tamil Radio",
+					"media":"http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-tamla_backup",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/bbc-tamil-radio.png"
+				}
+				,
+				{
+					"name":"BBC Hindi",
+					"id":"Zcmc1q9CZFP",
+					"type":"MUSIC",
+					"des":"BBC Hindi",
+					"media":"http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-hinda_backup",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/bbc-hindi-radio.png"
+				}
+				,
+				{
+					"name":"Sai Global Harmony",
+					"id":"G94PJjMk644",
+					"type":"MUSIC",
+					"des":"Sai Global Harmony",
+					"media":"http://stream.radiosai.org:8000/autobhajan",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-sai-global-harmony.png"
+				}
+				,
+				{
+					"name":"Schizoid Chillout",
+					"id":"SfbW0TB3doD",
+					"type":"MUSIC",
+					"des":"Schizoid Chillout",
+					"media":"http://94.130.113.214:8000/chill",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-schizoid-chillout.png"
+				}
+				,
+				{
+					"name":"Sikh Net",
+					"id":"L0Vdpf8xTzY",
+					"type":"MUSIC",
+					"des":"Sikh net",
+					"media":"http://192.69.212.61:8010/autodj",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/sikh-net.png"
+				}
+				,
+				{
+					"name":"Telugu One India",
+					"id":"P62AYh5p8zo",
+					"type":"MUSIC",
+					"des":"Telugu One India",
+					"media":"http://173.203.133.187:9700/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/telugu-one-india.png"
+				}
+				,
+				{
+					"name":"Geetham Radio Tamil",
+					"id":"G9ed0wYxDks",
+					"type":"MUSIC",
+					"des":"Geetham Radio Tamil",
+					"media":"http://www.geethamradio.com:8020/hifi.mp3",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/geetham-radio-tamil.png"
+				}
+				,
+				{
+					"name":"Vaanmalar FM India",
+					"id":"Gw2MYhGvsee",
+					"type":"MUSIC",
+					"des":"Vaanmalar FM India",
+					"media":"http://66.55.145.43:7364/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/vaanmalar-fm-india.png"
+				}
+				,
+				{
+					"name":"Radio India",
+					"id":"JFHFXQm13hi",
+					"type":"MUSIC",
+					"des":"Radio India",
+					"media":"http://162.244.80.52:4054/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-india.png"
+				}
+				,
+				{
+					"name":"Girmit India",
+					"id":"OJ9eTAFYMYS",
+					"type":"MUSIC",
+					"des":"Radio Girmit India",
+					"media":"http://s5.nexuscast.com:8070/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-girmit-india.png"
+				}
+				,
+				{
+					"name":"City Freedom",
+					"id":"UypUvYojUPz",
+					"type":"MUSIC",
+					"des":"Radio City Freedom",
+					"media":"http://prclive1.listenon.in:9978/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-city-freedom.png"
+				}
+				,
+				{
+					"name":"Sharda India",
+					"id":"HE1nxFzryKi",
+					"type":"MUSIC",
+					"des":"Sharda India",
+					"media":"http://s8.voscast.com:7738/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/radio-sharda-india.png"
+				}
+				,
+				{
+					"name":"Tamil Olli India",
+					"id":"Vt7zwhRctqr",
+					"type":"MUSIC",
+					"des":"Tamil Olli India",
+					"media":"http://91.121.165.41:9035/stream.mp3",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/tamil-olli-india.png"
+				}
+				,
+				{
+					"name":"Sunrise Radio Yorkshir",
+					"id":"FMkvHVRE7n3",
+					"type":"MUSIC",
+					"des":"Sunrise Radio Yorkshir",
+					"media":"http://direct.sharp-stream.com/sunrise.mp3",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/sunrise-radio-yorkshire.png"
+				}
+				,
+				{
+					"name":"Vanavil FM",
+					"id":"UZPHjWKSdc0",
+					"type":"MUSIC",
+					"des":"Vanavil FM",
+					"media":"http://s2.vanavilfm.com:8560/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/vanavil-fm.png"
+				}
+				,
+				{
+					"name":"A.R. Rahman Radio Tamil",
+					"id":"Dkug5DyGJoC",
+					"type":"MUSIC",
+					"des":"A.R. Rahman Radio Tamil",
+					"media":"http://streaming.radionomy.com/JamendoLounge?lang=zh-CN%2czh%3bq%3d0.9%2cen%3bq%3d0.8%2czh-TW%3bq%3d0.7%2cru%3bq%3d0.6%2cja%3bq%3d0.5",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/a-r-rahman-radio-tamil.png"
+				}
+				,
+				{
+					"name":"Red FM 93.5",
+					"id":"LhavEIBRQrg",
+					"type":"MUSIC",
+					"des":"Red FM 93.5",
+					"media":"http://17853.live.streamtheworld.com/CKYRFM_SC",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/red-fm-93-5.png"
+				}
+				,
+				{
+					"name":"Mukil FM",
+					"id":"HRvJOOubqq4",
+					"type":"MUSIC",
+					"des":"Mukil FM",
+					"media":"http://streaming.shoutcast.com/MUKILFMRADIO",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/mukil-fm.png"
+				}
+				,
+				{
+					"name":"Kerala Radio India",
+					"id":"T27VTCZM6ui",
+					"type":"MUSIC",
+					"des":"Kerala Radio India",
+					"media":"http://radio.hostonnet.com:8000/;",
+					"icon":"https://cdn.webrad.io/images/logos/onlineradios-in/kerala-radio-india.png"
+				}
+				
+            ]

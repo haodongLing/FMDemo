@@ -1,0 +1,31 @@
+[
+               
+				{
+					"name":"Radio Vietnam Hai Ngoai",
+					"id":"GEPcsm7COSz",
+					"type":"MUSIC",
+					"des":"",
+					"media":"http://vpr.serverroom.us:7492/;",
+					"icon":"https://cdn.webrad.io/images/logos/radioonline-vn/radio-viet-nam-hai-ngoai.png"
+				}
+				,
+				{
+					"name":"NHK Vietnam",
+					"id":"ZYu0jOR8vDc",
+					"type":"MUSIC",
+					"des":"NHK Vietnam",
+					"media":"https://nhkwrj-i.akamaihd.net/hls/live/263949/nhkwrj/01.m3u8",
+					"icon":"https://cdn.webrad.io/images/logos/radioonline-vn/nhk-vietnam.png"
+				}
+				,
+				{
+					"name":"Radio Tieng Nuroc Toi",
+					"id":"RWXytRcjPVS",
+					"type":"MUSIC",
+					"des":"Radio Tieng Nuroc Toi",
+					"media":"http://162.244.80.118:3092/stream/1/",
+					"icon":"https://cdn.webrad.io/images/logos/radioonline-vn/radio-tieng-nuroc-toi.png"
+				}
+			
+
+            ]
