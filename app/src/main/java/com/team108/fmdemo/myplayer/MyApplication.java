@@ -6,8 +6,6 @@ import com.google.android.exoplayer2.upstream.cache.*;
 
 import com.google.android.exoplayer2.util.Util;
 import com.team108.fmdemo.BuildConfig;
-import com.team108.fmdemo.database.DatabaseProvider;
-import com.team108.fmdemo.database.ExoDatabaseProvider;
 
 import java.io.File;
 

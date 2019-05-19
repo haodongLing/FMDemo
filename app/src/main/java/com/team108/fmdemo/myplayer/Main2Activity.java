@@ -2,7 +2,6 @@ package com.team108.fmdemo.myplayer;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -19,16 +18,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.google.android.exoplayer2.*;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.*;
-import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.*;
+import com.google.android.exoplayer2.upstream.BandwidthMeter;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.team108.fmdemo.*;
 import com.team108.fmdemo.R;
+import com.team108.fmdemo.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -50,8 +48,8 @@ public class Main2Activity extends AppCompatActivity
     TextView tvStatus;
     @BindView(R.id.btn_change_country)
     Button btnChangeCountry;
-    @BindView(R.id.pv_view)
-    PlayerView playerView;
+//    @BindView(R.id.pv_view)
+//    PlayerView playerView;
 
     @OnClick(R.id.btn_change_country)
     void onChangeCountryClicked() {
@@ -131,7 +129,7 @@ public class Main2Activity extends AppCompatActivity
     BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
     // 创建轨道选择工厂
 //    TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
-    TrackSelection.Factory videoTrackSelectionFactory=new AdaptiveTrackSelection.Factory();
+    TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
     // 创建轨道选择器实例
     TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
     // 创建解析数据的工厂
@@ -232,51 +230,16 @@ public class Main2Activity extends AppCompatActivity
             adapter.setOnClickItemListener(this);
             recyclerView.setAdapter(adapter);
         }
-        ExoPlayerManager.getDefault().init(Main2Activity.this,"Demo");
+        ExoPlayerManager.getDefault().init(Main2Activity.this, "Demo");
         ExoPlayerManager.getDefault().addListener(this);
-        ExoPlayerManager.getDefault().startRadio(selectedItem);
+        String uri = "http://zztool.qj.com/a.mp3";
+        ExoPlayerManager.getDefault().startRadio(uri);
+//        ExoPlayerManager.getDefault().startRadio(selectedItem);
     }
 
-//    private void initPlayer() {
-//        mSimpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
-//        extractorsFactory = new DefaultExtractorsFactory();
-//        if (CookieHandler.getDefault() != DEFAULT_COOKIE_MANAGER) {
-//            CookieHandler.setDefault(DEFAULT_COOKIE_MANAGER);
-//        }
-//        userAgent = Util.getUserAgent(this, MyApplication.class.getName()).replace("ExoPlayerLib", "Blah");
-//        dataSourceFactory = new DefaultDataSourceFactory(this,
-//                userAgent, new TransferListener() {
-//            @Override
-//            public void onTransferInitializing(DataSource source, DataSpec dataSpec, boolean isNetwork) {
-//
-//            }
-//
-//            @Override
-//            public void onTransferStart(DataSource source, DataSpec dataSpec, boolean isNetwork) {
-//
-//            }
-//
-//            @Override
-//            public void onBytesTransferred(DataSource source, DataSpec dataSpec, boolean isNetwork, int bytesTransferred) {
-//
-//            }
-//
-//            @Override
-//            public void onTransferEnd(DataSource source, DataSpec dataSpec, boolean isNetwork) {
-//
-//            }
-//        });
-//        selectedItem = dataList.get(0);
-//        mSimpleExoPlayer.addListener(this);
-//        mSimpleExoPlayer.prepare(createMediaSource(Uri.parse(selectedItem.getUrl())));
-//        mSimpleExoPlayer.setPlayWhenReady(true);
-//
+//    private MediaSource createMediaSource(Uri uri) {
+//        return new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
 //    }
-
-    private MediaSource createMediaSource(Uri uri) {
-        return new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
-    }
-
 
     private void readLocalRadio() {
         InputStream inputStream = null;

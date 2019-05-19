@@ -1,6 +1,7 @@
 package com.team108.fmdemo.myplayer;
 
 import android.content.Context;
+import android.net.Uri;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -17,7 +18,7 @@ import com.team108.fmdemo.RadioItem2;
 import com.team108.zzfm.model.response.RadioItem;
 
 /**
- * description
+ * description:
  * 2019-05-17
  * linghailong
  */
@@ -94,6 +95,8 @@ public abstract class ExoPlayerManager {
      * @param radioItem2
      */
     public abstract void startRadio(RadioItem2 radioItem2);
+
+    public abstract void startRadio(String uri);
 
     /**
      * 停止

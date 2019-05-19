@@ -3,11 +3,10 @@ package com.team108.fmdemo.myplayer;
 import android.net.Uri;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.offline.DownloadManager;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.upstream.cache.Cache;
 import com.team108.fmdemo.RadioItem2;
-import com.team108.fmdemo.database.DatabaseProvider;
 import com.team108.zzfm.model.response.RadioItem;
 
 import java.io.File;
@@ -18,11 +17,9 @@ import java.io.File;
  * linghailong
  */
 public class ExoPlayerManagerImpl extends ExoPlayerManager {
-    private DatabaseProvider databaseProvider;
     private File downloadDirectory;
     private Cache downloadCache;
     private DownloadManager downloadManager;
-    private DownloadTracker downloadTracker;
 
     @Override
     public void addListener(Player.EventListener listener) {
@@ -60,6 +57,15 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
         }
     }
 
+    @Override
+    public void startRadio(String uri) {
+        if (checkExoPlayerIsInited()) {
+            mSimpleExoPlayer.stop(true);
+            mSimpleExoPlayer.prepare(createMediaSource(Uri.parse(uri)));
+            mSimpleExoPlayer.setPlayWhenReady(true);
+        }
+    }
+
 
     @Override
     public void stopRedio() {
@@ -86,7 +92,7 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
     }
 
     private MediaSource createMediaSource(Uri uri) {
-        return new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
+        return new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
     }
 
 }
