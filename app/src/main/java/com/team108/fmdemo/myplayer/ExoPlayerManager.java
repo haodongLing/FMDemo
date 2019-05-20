@@ -2,6 +2,8 @@ package com.team108.fmdemo.myplayer;
 
 import android.content.Context;
 import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -29,7 +31,7 @@ public abstract class ExoPlayerManager {
     // 创建轨道选择器实例
     protected TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
     protected DataSource.Factory dataSourceFactory;
-    private String userAgent;
+    private String userAgent="exoplayer-codelab";
     private static final class Holder {
         private static final ExoPlayerManager sInstance = new ExoPlayerManagerImpl();
     }
@@ -42,7 +44,7 @@ public abstract class ExoPlayerManager {
      * @param pContext        A valid context of the calling application.
      * @param applicationName String that will be prefix'ed to the generated user agent.
      */
-    public void init(Context pContext, String applicationName) {
+    public void init(@NonNull Context pContext, @Nullable String applicationName) {
         /*如果mContext!=null,那么说明已经实例化*/
         if (mContext != null) {
             return;
@@ -78,6 +80,7 @@ public abstract class ExoPlayerManager {
      * @param listener
      */
     public abstract void addListener(Player.EventListener listener);
+    public abstract boolean getIsPlaying();
 
     /**
      * 释放Player
@@ -97,13 +100,23 @@ public abstract class ExoPlayerManager {
     public abstract void startRadio(RadioItem2 radioItem2);
 
     public abstract void startRadio(String uri);
-
     /**
      * 停止
      */
-    public abstract void stopRedio();
-    public abstract void pauseRedio();
-    public abstract void resumeRedio();
+    public abstract void stopRadio();
+    /**
+     *
+     * @param percent:指定从整体的百分之几开始播放
+     */
+    public abstract void seekTo(double percent);
+    public abstract void resumeOrPauseRadio();
+
+    /**
+     *
+     * @param uri 判断当前连接是否是想要从中间播放的那条链接
+     * @param percent 指定从整体的百分之几开始播放
+     */
+    public abstract void seekTo(String uri,double percent);
 
     /**
      * 检查当亲Player是否被实例化

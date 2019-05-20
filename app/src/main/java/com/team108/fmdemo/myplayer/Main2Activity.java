@@ -69,6 +69,8 @@ public class Main2Activity extends AppCompatActivity
 
     @OnClick(R.id.btn_play)
     void onPlayclicked() {
+        ExoPlayerManager.getDefault().init(this,null);
+        ExoPlayerManager.getDefault().resumeOrPauseRadio();
     }
 
     @BindView(R.id.btn_last)
@@ -232,15 +234,10 @@ public class Main2Activity extends AppCompatActivity
         }
         ExoPlayerManager.getDefault().init(Main2Activity.this, "Demo");
         ExoPlayerManager.getDefault().addListener(this);
+//        String uri = "https://storage.googleapis.com/exoplayer-test-media-0/play.mp3";
         String uri = "http://zztool.qj.com/a.mp3";
         ExoPlayerManager.getDefault().startRadio(uri);
-//        ExoPlayerManager.getDefault().startRadio(selectedItem);
     }
-
-//    private MediaSource createMediaSource(Uri uri) {
-//        return new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
-//    }
-
     private void readLocalRadio() {
         InputStream inputStream = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -334,15 +331,13 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
         Log.i(TAG, "onPlayerStateChanged: ");
+
         if (playWhenReady && playbackState == Player.STATE_READY) {
             Log.i(TAG, "onPlayerStateChanged: --->setPlayWhenReady");
-//            mSimpleExoPlayer.setPlayWhenReady(true);
+            ExoPlayerManager.getDefault().seekTo("http://zztool.qj.com/a.mp3",0.3);
             tvStatus.setText("正在播放");
-        } else if (playWhenReady) {
-            // Not playing because playback ended, the player is buffering, stopped or
-            // failed. Check playbackState and player.getPlaybackError for details.
-        } else {
-            // Paused by app.
+        } else if (!playWhenReady){
+//            ExoPlayerManager.getDefault().mSimpleExoPlayer.getCurrentPosition()
         }
     }
 
@@ -364,7 +359,7 @@ public class Main2Activity extends AppCompatActivity
 
     @Override
     public void onPositionDiscontinuity(int reason) {
-        Log.i(TAG, "onPositionDiscontinuity: ");
+        Log.i(TAG, "onPositionDiscontinuity: +reason"+reason);
     }
 
     @Override
