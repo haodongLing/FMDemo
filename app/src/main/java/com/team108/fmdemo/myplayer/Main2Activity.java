@@ -48,6 +48,7 @@ public class Main2Activity extends AppCompatActivity
     TextView tvStatus;
     @BindView(R.id.btn_change_country)
     Button btnChangeCountry;
+    private int count=0;
 //    @BindView(R.id.pv_view)
 //    PlayerView playerView;
 
@@ -234,8 +235,8 @@ public class Main2Activity extends AppCompatActivity
         }
         ExoPlayerManager.getDefault().init(Main2Activity.this, "Demo");
         ExoPlayerManager.getDefault().addListener(this);
-//        String uri = "https://storage.googleapis.com/exoplayer-test-media-0/play.mp3";
-        String uri = "http://zztool.qj.com/a.mp3";
+        String uri = "https://storage.googleapis.com/exoplayer-test-media-0/play.mp3";
+//        String uri = "http://zztool.qj.com/a.mp3";
         ExoPlayerManager.getDefault().startRadio(uri);
     }
     private void readLocalRadio() {
@@ -330,6 +331,8 @@ public class Main2Activity extends AppCompatActivity
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        Log.i(TAG, "onPlayerStateChanged: conunt"+count+"playWhenReady-->"+playWhenReady+"playbackState-->"+playbackState);
+        count=count+1;
         Log.i(TAG, "onPlayerStateChanged: ");
 
         if (playWhenReady && playbackState == Player.STATE_READY) {
