@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.offline.DownloadManager;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -28,8 +29,12 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
     /*video长度*/
     private long videoDuration;
     private String currentUri;
-    /*判断当前fm是否正在播放*/
+    /*当前fm是否正在播放的位置*/
     private long currentPosition;
+
+    /*音速测试*/
+    private float currentSpeed = 1.0f;
+
 
     @Override
     public void addListener(Player.EventListener listener) {
@@ -67,6 +72,7 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
 
     @Override
     public void startRadio(RadioItem2 radioItem2) {
+        Log.i(TAG, "startRadio");
         if (checkExoPlayerIsInited()) {
             mSimpleExoPlayer.stop(true);
             mSimpleExoPlayer.prepare(buildMediaSource(Uri.parse(radioItem2.getUrl())));
@@ -103,16 +109,21 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
     }
 
     @Override
-    public void resumeOrPauseRadio() {
-        if (checkExoPlayerIsInited()) {
-            if (mSimpleExoPlayer.getPlayWhenReady()) {
-                currentPosition = mSimpleExoPlayer.getCurrentPosition();
-                mSimpleExoPlayer.setPlayWhenReady(false);
-            } else {
-                mSimpleExoPlayer.setPlayWhenReady(true);
-                mSimpleExoPlayer.seekTo(currentPosition);
-                currentPosition = 0;
-            }
+    public void resumeRadio() {
+        if (checkExoPlayerIsInited() && !mSimpleExoPlayer.getPlayWhenReady()) {
+            Log.i(TAG, "resumeRadio");
+            mSimpleExoPlayer.setPlayWhenReady(true);
+            mSimpleExoPlayer.seekTo(currentPosition);
+            currentPosition = 0;
+        }
+    }
+
+    @Override
+    public void pauseRadio() {
+        if (checkExoPlayerIsInited() && mSimpleExoPlayer.getPlayWhenReady()) {
+            Log.i(TAG, "pauseRadio");
+            currentPosition = mSimpleExoPlayer.getCurrentPosition();
+            mSimpleExoPlayer.setPlayWhenReady(false);
         }
     }
 
@@ -127,6 +138,25 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
     @Override
     public boolean checkExoPlayerIsInited() {
         return mSimpleExoPlayer != null;
+    }
+
+    @Override
+    public void risePlayer() {
+        if (checkExoPlayerIsInited()) {
+            currentSpeed += 0.2f;
+            if (currentSpeed >= 2.0f) currentSpeed = 2.0f;
+            mSimpleExoPlayer.setPlaybackParameters(new PlaybackParameters(currentSpeed));
+        }
+    }
+
+    @Override
+    public void lowPlayer() {
+        if (checkExoPlayerIsInited()) {
+            currentSpeed -= 0.2f;
+            if (currentSpeed <= 0) currentSpeed = 0.2f;
+            mSimpleExoPlayer.setPlaybackParameters(new PlaybackParameters(currentSpeed));
+        }
+
     }
 
     private MediaSource buildMediaSource(Uri uri) {
@@ -152,8 +182,4 @@ public class ExoPlayerManagerImpl extends ExoPlayerManager {
             }
         }
     }
-//    private MediaSource createMediaSource(Uri uri) {
-//        return new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
-//    }
-
 }

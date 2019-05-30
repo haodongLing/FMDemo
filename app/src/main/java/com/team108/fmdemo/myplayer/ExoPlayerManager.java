@@ -1,7 +1,6 @@
 package com.team108.fmdemo.myplayer;
 
 import android.content.Context;
-import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -32,10 +31,10 @@ public abstract class ExoPlayerManager {
     protected TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
     protected DataSource.Factory dataSourceFactory;
     private String userAgent="exoplayer-codelab";
+    protected ExoPlayerManager(){}
     private static final class Holder {
         private static final ExoPlayerManager sInstance = new ExoPlayerManagerImpl();
     }
-
     public static ExoPlayerManager getDefault() {
         return Holder.sInstance;
     }
@@ -109,18 +108,27 @@ public abstract class ExoPlayerManager {
      * @param percent:指定从整体的百分之几开始播放
      */
     public abstract void seekTo(double percent);
-    public abstract void resumeOrPauseRadio();
-
     /**
      *
      * @param uri 判断当前连接是否是想要从中间播放的那条链接
      * @param percent 指定从整体的百分之几开始播放
      */
     public abstract void seekTo(String uri,double percent);
+    /**
+     * 重启
+     */
+    public abstract void resumeRadio();
+
+    /**
+     * 暂停
+     */
+    public abstract void pauseRadio();
 
     /**
      * 检查当亲Player是否被实例化
      * @return
      */
     public abstract boolean checkExoPlayerIsInited();
+    public abstract void risePlayer();
+    public abstract void lowPlayer();
 }

@@ -8,10 +8,11 @@
         android:background="#dadada"
 >
     <!--<com.google.android.exoplayer2.ui.PlayerView-->
-            <!--android:layout_width="200dp"-->
-            <!--android:layout_height="130dp"-->
-            <!--android:id="@+id/pv_view"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="130dp"-->
+    <!--android:id="@+id/pv_view"-->
     <!--/>-->
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rl_list"
             android:layout_width="match_parent"
@@ -27,7 +28,6 @@
             android:textColor="#5d7599"
             android:textSize="20sp"
             android:textAlignment="center"/>
-
     <Button
             android:id="@+id/btn_play"
             android:layout_width="wrap_content"
@@ -85,6 +85,23 @@
             android:text="切换国家"
             android:textSize="20sp"
             android:textColor="#5d7599"/>
+    <Button
+            android:id="@+id/btn_rise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="升速"
+            android:textSize="20sp"
+            android:textColor="#5d7599"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+    />
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btn_low"
+            android:text="降速"
+            app:layout_constraintLeft_toRightOf="@id/btn_rise"
+            android:textSize="20sp"
+            android:textColor="#5d7599"
+            android:layout_marginLeft="16dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rl_list_country"

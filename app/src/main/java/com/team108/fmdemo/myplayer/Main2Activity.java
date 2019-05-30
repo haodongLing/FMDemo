@@ -48,7 +48,7 @@ public class Main2Activity extends AppCompatActivity
     TextView tvStatus;
     @BindView(R.id.btn_change_country)
     Button btnChangeCountry;
-    private int count=0;
+    private int count = 0;
 //    @BindView(R.id.pv_view)
 //    PlayerView playerView;
 
@@ -58,6 +58,9 @@ public class Main2Activity extends AppCompatActivity
         btnChangeCountry.setText(isCountryListShow ? "切换国家" : "收起");
         isCountryListShow = !isCountryListShow;
     }
+
+    private String info[] = new String[]{"http://www.fm101.cn/zxdt/wqht/index.html", "https://tingfm.com/radio/5", "https://tingfm.com/radio/682", "https://tingfm.com/radio/3"};
+    int i1 = 0;
 
     private static final String TAG = "lhl";
 
@@ -70,8 +73,12 @@ public class Main2Activity extends AppCompatActivity
 
     @OnClick(R.id.btn_play)
     void onPlayclicked() {
-        ExoPlayerManager.getDefault().init(this,null);
-        ExoPlayerManager.getDefault().resumeOrPauseRadio();
+        ExoPlayerManager.getDefault().init(this, null);
+        if (ExoPlayerManager.getDefault().getIsPlaying()) {
+            ExoPlayerManager.getDefault().pauseRadio();
+        } else {
+            ExoPlayerManager.getDefault().resumeRadio();
+        }
     }
 
     @BindView(R.id.btn_last)
@@ -92,12 +99,18 @@ public class Main2Activity extends AppCompatActivity
 
     @OnClick(R.id.btn_next)
     void onNextClicked() {
-        selectedIndex++;
-        if (selectedIndex >= dataList.size()) {
-            selectedIndex = 0;
-        }
-        selectedItem = dataList.get(selectedIndex);
-        play(selectedItem);
+//        selectedIndex++;
+//        if (selectedIndex >= dataList.size()) {
+//            selectedIndex = 0;
+//        }
+//        selectedItem = dataList.get(selectedIndex);
+//        play(selectedItem);
+        if (i1 >= info.length) {
+            return;
+        } else
+            ExoPlayerManager.getDefault().startRadio(info[i1]);
+        LogUtil.i(info[i1]);
+        i1 = i1 + 1;
     }
 
     private void play(RadioItem2 radioItem2) {
@@ -108,6 +121,22 @@ public class Main2Activity extends AppCompatActivity
 //            mSimpleExoPlayer.prepare(createMediaSource(Uri.parse(radioItem2.getUrl())));
 //        }
 //        tvStatus.setText("正在加载频道");
+    }
+
+    @BindView(R.id.btn_rise)
+    Button btnRise;
+
+    @OnClick(R.id.btn_rise)
+    void onRiseClick() {
+        ExoPlayerManager.getDefault().risePlayer();
+    }
+
+    @BindView(R.id.btn_low)
+    Button btnLow;
+
+    @OnClick(R.id.btn_low)
+    void onLowClick() {
+        ExoPlayerManager.getDefault().lowPlayer();
     }
 
     @BindView(R.id.rl_list)
@@ -239,6 +268,7 @@ public class Main2Activity extends AppCompatActivity
 //        String uri = "http://zztool.qj.com/a.mp3";
         ExoPlayerManager.getDefault().startRadio(uri);
     }
+
     private void readLocalRadio() {
         InputStream inputStream = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -331,16 +361,17 @@ public class Main2Activity extends AppCompatActivity
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        Log.i(TAG, "onPlayerStateChanged: conunt"+count+"playWhenReady-->"+playWhenReady+"playbackState-->"+playbackState);
-        count=count+1;
+        Log.i(TAG, "onPlayerStateChanged: conunt" + count + "playWhenReady-->" + playWhenReady + "playbackState-->" + playbackState);
+        count = count + 1;
         Log.i(TAG, "onPlayerStateChanged: ");
 
         if (playWhenReady && playbackState == Player.STATE_READY) {
             Log.i(TAG, "onPlayerStateChanged: --->setPlayWhenReady");
-            ExoPlayerManager.getDefault().seekTo("http://zztool.qj.com/a.mp3",0.3);
-            tvStatus.setText("正在播放");
-        } else if (!playWhenReady){
-//            ExoPlayerManager.getDefault().mSimpleExoPlayer.getCurrentPosition()
+//            ExoPlayerManager.getDefault().seekTo("http://zztool.qj.com/a.mp3",0.3);
+//            tvStatus.setText("正在播放");
+        }
+        if (playWhenReady && playbackState == Player.STATE_ENDED) {
+            LogUtil.i("结束播放");
         }
     }
 
@@ -362,7 +393,7 @@ public class Main2Activity extends AppCompatActivity
 
     @Override
     public void onPositionDiscontinuity(int reason) {
-        Log.i(TAG, "onPositionDiscontinuity: +reason"+reason);
+        Log.i(TAG, "onPositionDiscontinuity: +reason" + reason);
     }
 
     @Override
