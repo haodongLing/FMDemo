@@ -74,11 +74,7 @@ public class Main2Activity extends AppCompatActivity
     @OnClick(R.id.btn_play)
     void onPlayclicked() {
         ExoPlayerManager.getDefault().init(this, null);
-        if (ExoPlayerManager.getDefault().getIsPlaying()) {
-            ExoPlayerManager.getDefault().pauseRadio();
-        } else {
-            ExoPlayerManager.getDefault().resumeRadio();
-        }
+
     }
 
     @BindView(R.id.btn_last)
@@ -115,7 +111,6 @@ public class Main2Activity extends AppCompatActivity
 
     private void play(RadioItem2 radioItem2) {
         Log.i(TAG, "play: ");
-        ExoPlayerManager.getDefault().startRadio(radioItem2);
 //        if (mSimpleExoPlayer != null) {
 //            mSimpleExoPlayer.stop();
 //            mSimpleExoPlayer.prepare(createMediaSource(Uri.parse(radioItem2.getUrl())));
@@ -128,7 +123,7 @@ public class Main2Activity extends AppCompatActivity
 
     @OnClick(R.id.btn_rise)
     void onRiseClick() {
-        ExoPlayerManager.getDefault().risePlayer();
+
     }
 
     @BindView(R.id.btn_low)
@@ -136,7 +131,7 @@ public class Main2Activity extends AppCompatActivity
 
     @OnClick(R.id.btn_low)
     void onLowClick() {
-        ExoPlayerManager.getDefault().lowPlayer();
+
     }
 
     @BindView(R.id.rl_list)

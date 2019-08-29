@@ -1,11 +1,17 @@
 package com.team108.fmdemo.myplayer;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.exoplayer2.DefaultControlDispatcher;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
@@ -15,8 +21,9 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.TransferListener;
 import com.google.android.exoplayer2.util.Util;
-import com.team108.fmdemo.RadioItem2;
-import com.team108.zzfm.model.response.RadioItem;
+
+import java.util.Formatter;
+
 
 /**
  * description:
@@ -26,18 +33,43 @@ import com.team108.zzfm.model.response.RadioItem;
 public abstract class ExoPlayerManager {
     protected Context mContext;
     protected SimpleExoPlayer mSimpleExoPlayer;
-    protected TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
-    // 创建轨道选择器实例
-    protected TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
     protected DataSource.Factory dataSourceFactory;
-    private String userAgent="exoplayer-codelab";
-    protected ExoPlayerManager(){}
+    private String userAgent = "exoplayer-codelab";
+
+    protected ExoPlayerManager() {
+    }
+
+    protected Timeline.Window window;
+    protected Timeline.Period period;
+    protected Handler mHandler;
+    protected MediaControlListener mediaControlListener;
+    protected DefaultControlDispatcher controlDispatcher;
+    protected StringBuilder formatBuilder;
+    protected Formatter formatter;
+
+    protected boolean isPaused = false;
+
     private static final class Holder {
         private static final ExoPlayerManager sInstance = new ExoPlayerManagerImpl();
     }
+
     public static ExoPlayerManager getDefault() {
         return Holder.sInstance;
     }
+
+    public StringBuilder getFormatBuilder() {
+        return formatBuilder;
+    }
+
+    public Formatter getFormatter() {
+        return formatter;
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    public abstract void setPaused(boolean paused);
 
     /**
      * @param pContext        A valid context of the calling application.
@@ -49,9 +81,12 @@ public abstract class ExoPlayerManager {
             return;
         }
         mContext = pContext;
+         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
+        // 创建轨道选择器实例
+         TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
         mSimpleExoPlayer = ExoPlayerFactory.newSimpleInstance(mContext, trackSelector);
         userAgent = Util.getUserAgent(mContext, applicationName.replace("ExoPlayerLib", "Blah"));
-        dataSourceFactory=new DefaultDataSourceFactory(mContext, userAgent, new TransferListener() {
+        dataSourceFactory = new DefaultDataSourceFactory(mContext, userAgent, new TransferListener() {
             @Override
             public void onTransferInitializing(DataSource source, DataSpec dataSpec, boolean isNetwork) {
 
@@ -72,63 +107,76 @@ public abstract class ExoPlayerManager {
 
             }
         });
+        this.window = new Timeline.Window();
+        this.period = new Timeline.Period();
+        if (mHandler == null)
+            mHandler = new Handler(Looper.getMainLooper());
+        controlDispatcher = new DefaultControlDispatcher();
+
     }
+
+    public abstract void addMediaListener(MediaControlListener listener);
+
+    public abstract void startListenProgress();
 
     /**
      * 添加Player的listener
+     *
      * @param listener
      */
     public abstract void addListener(Player.EventListener listener);
-    public abstract boolean getIsPlaying();
 
     /**
      * 释放Player
      */
     public abstract void releasePlayer();
 
-    /**
-     * 开始播放
-     * @param responseRadio
-     */
-    public abstract void startRadio(RadioItem responseRadio);
-
-    /**
-     * 测试方法，不用管
-     * @param radioItem2
-     */
-    public abstract void startRadio(RadioItem2 radioItem2);
 
     public abstract void startRadio(String uri);
+
+    /**
+     * 重新开始
+     */
+    public abstract void reStart();
+
     /**
      * 停止
      */
     public abstract void stopRadio();
-    /**
-     *
-     * @param percent:指定从整体的百分之几开始播放
-     */
-    public abstract void seekTo(double percent);
-    /**
-     *
-     * @param uri 判断当前连接是否是想要从中间播放的那条链接
-     * @param percent 指定从整体的百分之几开始播放
-     */
-    public abstract void seekTo(String uri,double percent);
+
+
     /**
      * 重启
      */
     public abstract void resumeRadio();
+
+    public abstract boolean isCurrentWindowSeekable();
 
     /**
      * 暂停
      */
     public abstract void pauseRadio();
 
+
     /**
      * 检查当亲Player是否被实例化
+     *
      * @return
      */
     public abstract boolean checkExoPlayerIsInited();
-    public abstract void risePlayer();
-    public abstract void lowPlayer();
+
+
+    public abstract void seekToTimeBarPosition(long positionMs);
+
+    public interface MediaControlListener {
+        void setCurPositionTime(long curPositionTime);
+
+        void setDurationTime(long durationTime);
+
+        void setBufferedPositionTime(long bufferedPosition);
+
+        void setCurTimeString(String curTimeString);
+
+        void setDurationTimeString(String durationTimeString);
+    }
 }
